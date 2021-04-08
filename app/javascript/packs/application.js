@@ -16,7 +16,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(function() {
+jQuery(function() {
     console.log('============================Ya está instalado jQuery, y funciona!===============================')
     console.log(jQuery)
+    console.log($)
 })
+
+$()
