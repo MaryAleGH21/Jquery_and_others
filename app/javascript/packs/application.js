@@ -17,9 +17,14 @@ Turbolinks.start()
 ActiveStorage.start()
 
 jQuery(function() {
-    console.log('============================Ya está instalado jQuery, y funciona!===============================')
+    console.log('Ya está instalado jQuery, y funciona!')
     console.log(jQuery)
     console.log($)
 })
+console.log($(document.body))
 
-$()
+$(function(){
+    $('body').css('background','tomato')
+    $('.title').css('color', 'white') // Selecciona todo los titles existentes en el index
+    document.querySelector('.title')
+})
