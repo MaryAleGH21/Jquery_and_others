@@ -23,33 +23,45 @@ jQuery(function() {
 })
 console.log($(document.body))
 
-$(document).on('turbolinks:load', function(){  
-    $('body').css('background','tomato') // Selecciona todo los titles existentes en el index
+$(document).on('turbolinks:load', function(){
+    /*$('body').css('background', 'tomato')
+    $('body').css('color', 'white')*/
+    $('body').css({background: 'tomato', color:'white'})
+    const colors = ['tomato', 'navy', 'mediumseagreen', 'orange', 'skyblue', 'crimson', 'chucknorris']
+    
     $('.alert').click(function(){
-        alert('ALERTA, me han hecho click!')
-    }) 
+      alert('ALERTA, me han hecho click!')
+    })
     $('select').change(function(){
-        $('.result').text($(this).val())
+      $('.result').text($(this).val())
     })
     $('h1').hover(function(){
-        console.log('Me rosaste!, me siento ofendido!')
+      console.log('Me rosaste!!, Me siento ofendido!!')
     })
     $('input.nombre').focus(function(){
-        console.log('Recuerde poner su nombre, no me venga a poner el apellido! ')
+      console.log('recuerde de poner su nombre, no me venga a poner el apellido!')
     })
     $('input.nombre').blur(function(){
-        const txt = $(this).val()
-        if(txt){
-            console.log('Bien escribiste tu nombre!')
-        } else {
-            console.log('Ya pues, y el nombre?')
-        }
+      const txt = $(this).val()
+      if(txt){
+        console.log('Bien escribiste tu nombre!')
+      } else {
+        console.log('Ya pues, y el nombre?')
+      }
     })
     $('.hide').click(function(){
-        $('.text').hide('slow')
-       })
+     $('.text').hide('slow', function(){
+       $('body').css('background', 'navy')
+     })
+    })
     $('.show').click(function(){
-        $('.text').show(5000)
-    })   
-})
-
+      $('.text').show(5000, function(){
+        $('body').css('background', 'tomato')
+      })
+     })
+     $('.toggle').click(function(){
+      $('.text').toggle(5000, function(){
+        $('body').css('background', colors[Math.floor(Math.random() * colors.length)]) 
+      })
+     })
+  })   
