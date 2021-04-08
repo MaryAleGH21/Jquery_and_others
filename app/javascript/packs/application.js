@@ -23,8 +23,33 @@ jQuery(function() {
 })
 console.log($(document.body))
 
-$(function(){
-    $('body').css('background','tomato')
-    $('.title').css('color', 'white') // Selecciona todo los titles existentes en el index
-    document.querySelector('.title')
+$(document).on('turbolinks:load', function(){  
+    $('body').css('background','tomato') // Selecciona todo los titles existentes en el index
+    $('.alert').click(function(){
+        alert('ALERTA, me han hecho click!')
+    }) 
+    $('select').change(function(){
+        $('.result').text($(this).val())
+    })
+    $('h1').hover(function(){
+        console.log('Me rosaste!, me siento ofendido!')
+    })
+    $('input.nombre').focus(function(){
+        console.log('Recuerde poner su nombre, no me venga a poner el apellido! ')
+    })
+    $('input.nombre').blur(function(){
+        const txt = $(this).val()
+        if(txt){
+            console.log('Bien escribiste tu nombre!')
+        } else {
+            console.log('Ya pues, y el nombre?')
+        }
+    })
+    $('.hide').click(function(){
+        $('.text').hide('slow')
+       })
+    $('.show').click(function(){
+        $('.text').show(5000)
+    })   
 })
+
